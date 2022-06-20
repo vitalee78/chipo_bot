@@ -8,8 +8,16 @@ from telegram.ext import MessageHandler
 from telegram.ext import Updater
 
 from config import TG_TOKEN
+import logging.config
+from config import LOGGING
+from echo.utils import logger_factory
+
+logging.config.dictConfig(LOGGING)
+logger = logging.getLogger('')
+debug_requests = logger_factory(logger=logger)
 
 
+@debug_requests
 def do_start(bot: Bot, update: Update):
     bot.send_message(
         chat_id=update.message.chat_id,
@@ -17,6 +25,7 @@ def do_start(bot: Bot, update: Update):
     )
 
 
+@debug_requests
 def do_help(bot: Bot, update: Update):
     bot.send_message(
         chat_id=update.message.chat_id,
@@ -26,6 +35,7 @@ def do_help(bot: Bot, update: Update):
     )
 
 
+@debug_requests
 def do_echo(bot: Bot, update: Update):
     chat_id = update.message.chat_id
     text = f"Ваш ID = {chat_id}\n\n {update.message.text}"
@@ -35,6 +45,7 @@ def do_echo(bot: Bot, update: Update):
     )
 
 
+@debug_requests
 def do_time(bot: Bot, update: Update):
     date_format = '%d-%m-%Y'
     today = datetime.now()
