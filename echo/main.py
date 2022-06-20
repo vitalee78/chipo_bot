@@ -37,10 +37,11 @@ def do_help(bot: Bot, update: Update):
 @debug_requests
 def do_echo(bot: Bot, update: Update):
     chat_id = update.message.chat_id
-    text = f"Ваш ID = {chat_id}\n\n {update.message.text}"
+    text = update.message.text
+    reply_text = f"Ваш ID = {chat_id}\n\n {text}"
     bot.send_message(
         chat_id=chat_id,
-        text=text
+        text=reply_text
     )
 
 
