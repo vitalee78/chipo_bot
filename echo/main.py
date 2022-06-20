@@ -1,5 +1,5 @@
+import logging.config
 from datetime import datetime
-
 from telegram import Bot
 from telegram import Update
 from telegram.ext import CommandHandler
@@ -8,7 +8,6 @@ from telegram.ext import MessageHandler
 from telegram.ext import Updater
 
 from config import TG_TOKEN
-import logging.config
 from config import LOGGING
 from echo.utils import logger_factory
 
