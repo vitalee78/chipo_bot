@@ -7,7 +7,7 @@ from telegram.ext import Filters
 from telegram.ext import MessageHandler
 from telegram.ext import Updater
 
-from echo.config import TG_TOKEN
+from config import TG_TOKEN
 
 
 def do_start(bot: Bot, update: Update):
