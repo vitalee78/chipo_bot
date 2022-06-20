@@ -9,7 +9,7 @@ from telegram.ext import Updater
 
 from config import TG_TOKEN
 from config import LOGGING
-from echo.utils import logger_factory
+from utils import logger_factory
 
 logging.config.dictConfig(LOGGING)
 logger = logging.getLogger('')
